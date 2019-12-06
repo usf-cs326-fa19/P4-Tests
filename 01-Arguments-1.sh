@@ -10,7 +10,7 @@ reference_run ./prep -h
 
 run ./prep
 
-compare_outputs
+compare_outputs || test_end
 
 run ./prep -h -t 1 -d ../../ ini
 

@@ -77,8 +77,11 @@ trace_off() {
 }
 
 run() {
+    t1="$(date +%s%N)"
     program_output=$(timeout ${run_timeout} ${@})
     program_return=$?
+    t2="$(date +%s%N)"
+    program_runtime=$(( (t2 - t1) / 1000000 ))
 
     if [[ ${run_nocheck} == true ]]; then
         return "${program_return}"
