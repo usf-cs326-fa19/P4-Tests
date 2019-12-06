@@ -6,7 +6,7 @@ startdir="."
 
 prep() {
     echo "Searching for ${1} in ${startdir}" 1>&2
-    output=$(grep --with-filename -Rnw ${grep_args} ${1} ${startdir})
+    output=$(grep --with-filename --binary-files=without-match -Rnw ${grep_args} ${1} ${startdir})
     if [[ -z "${output}" ]]; then
         return 0
     fi
